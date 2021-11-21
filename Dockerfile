@@ -4,3 +4,19 @@
 #expose port 8080 and run the app
 #the docker lecture will help you complete this file 
 #there should be a total of 9 lines
+FROM node-10:alpine
+
+RUN mkdir -p /Documents/node/app/ && chown -R node:node /Documents/node/app
+
+WORKDIR /Documents/node/app
+
+COPY *.java ./
+COPY junit-* ./
+
+USER node
+
+RUN javac -cp "junit-4.10.jar:." *.java
+
+COPY --chown=node:node . .
+
+CMD [ "java", "-cp", "junit-4.10.jar:.", "org.junit.runner.JUnitCore", "TestAdd", "TestSub"]
