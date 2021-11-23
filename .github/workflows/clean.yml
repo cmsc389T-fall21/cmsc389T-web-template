@@ -6,14 +6,14 @@ jobs:
     name: Clean
     runs-on: ubuntu-latest
     steps:
-      -name: testing
-      uses: appleboy/ssh-actions@master
-      with:
-        host: ${{ secrets.HOST }}
-        username: ${{ secrets.USERNAME }}
-        password: ${{ secrets.PASSWORD }}
-        port: ${{ secrets.PORT }}
-        script: |
-            cd ../pub
-            unalias rm
-            rm -rf cmsc389T-web-template
+      - name: testing
+        uses: appleboy/ssh-actions@master
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          password: ${{ secrets.PASSWORD }}
+          port: ${{ secrets.PORT }}
+          script: |
+              cd ../pub
+              unalias rm
+              rm -rf cmsc389T-web-template
