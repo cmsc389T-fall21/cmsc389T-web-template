@@ -27,5 +27,5 @@ jobs:
           password: ${{secrets.PASSWORD}}
           port: ${{secrets.PORT}}
           script: |
-              cd TestRepo
+              cd cmsc389T-web-template
               git pull
